@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   background: url("../img/bigRobby.jpg") 100% 40%;
   background-repeat: no-repeat;
-  background-size: 90% 100%;
+  background-size: cover;
 }
 
 #hero:before {
