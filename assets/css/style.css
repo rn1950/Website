@@ -342,6 +342,34 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Hardware 
+--------------------------------------------------------------*/
+.hardware .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #173b6c;
+}
+
+.hardware .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hardware .content ul li {
+  padding-bottom: 10px;
+}
+
+.hardware .content ul i {
+  font-size: 20px;
+  padding-right: 2px;
+  color: #149ddd;
+}
+
+.hardware .content p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
 .facts {
