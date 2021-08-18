@@ -79,36 +79,36 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>About Me</h2>
-          <p>I am currently pursuing my Bachelors in Electrical Engineering at GT and plan to stay at GT for my Masters in ECE.  My interest in engineering primarily came from my involvment with First Lego League in middle school and VEX Robotics in high school.</p>
+          <h2>GT Solar Racing Communication Failure Functionality</h2>
+          <p>In this project, I improved the time needed to detect communication failures for battery monitoring electronics. GTSR uses boards from Manzanita Micro for resistive brick balancing and voltage monitoring, and these boards use the FTDI Communication Protocol. In-between the Manzanita Micro board and the custom high level vehicle state controller / battery monitor board (called BMS Master) is an Arduino. That Arduino is where code in this project went. </p>
         </div>
 
         <div class="row">
+          <div class="col-lg-7" data-aos="fade-right">
+            <img src="assets/img/recvData.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-5 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <p class="font-italic">
+             Receive and Parse from FTDI 
+            </p>
+            <p>
+              In this part of the code, I introduced the concept of communication failures which is where the value stored in rcvd == 0. I recorded the number of times that rcvd == 0 over the course of two minutes of normal operation, and then I plotted these numbers in MATLAB. Since these cases were under nominal conditions, I set the numFailures check value to be two standard deviations above the maximum to ensure that there would never be a failure in nominal conditions. This check improved the time it took BMS Master to detect the failure from ~5s to less than 1s.  
+            </p>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/gtMAB.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/getVoltage.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Engineering Organizational Involvments</h3>
             <p class="font-italic">
-              Here are my engineering involvments at GT
+             Get Voltages, Temperatures, and Heat Sync Temperatures 
             </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>Batteries/BMS Team Member</strong> GT Solar Racing</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Researcher</strong> Georgia Tech Systems Research</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Peer Instructor</strong> ECE Hive Makerspace</li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>2020 Intern</strong> Tesla Motors Firmware Validation</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>2019 Intern</strong> NCR, Optic Group</li>
-                </ul>
-              </div>
-            </div>
             <p>
-              I have taken courses in the following areas: Controls, Artificial Intelligence, Data Structures and Algorithms, Microelectronics, Quantum Mechanics, and many more. Information about each activity is in the portfolio pages. 
+              This code is very similar for Voltage, Temp, and Heat Sync Temp detection. In addition to looking at the communication status from the above code, we also improved data integrity in cases where extra spaces would be attached to messages. Using the strchr() function, I removed the spaces by setting result char * to the char * returned by strchr(). Now, instead of returning the voltage, we set the value to the voltage_addr memory address and then return the communication status. 
             </p>
           </div>
         </div>
@@ -116,73 +116,6 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Hobbies</h2>
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-right">
-              <iframe width="350" height="250"
-              src="https://www.youtube.com/embed/OmNkMfGQLWY">
-              </iframe>
-            </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-              <p>
-                Before COVID, I was activley involved in GT Ramblin Raas (Traditional <a href="https://en.wikipedia.org/wiki/Garba_(dance)" >Garba Raas </a>Indian Dance Team) as a Dancer and Production Chair. We compete at competitions around the country and qualified for the National Chapionships in 2020. Here is a link to our performance from Raas Chaos at GW University! 
-              </p>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul>
-                    
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-
-                  </ul>
-                </div>
-              </div>
-              <p>
-                
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/ATL.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <p>
-              I also enjoy being an amateur photographer, and I like to take and edit photos of friends, family, and places I go. Here is a link to my <a href="https://www.flickr.com/photos/189625716@N08/albums">portfolio on Flickr</a>.
-              Sometimes I also play Violin but have no semblance of skill other than instruction from middle school. 
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-
-                </ul>
-              </div>
-            </div>
-            <p>
-              
-            </p>
-          </div>
-        </div>
-      </div>
-
-        
-
-      </div>
-    </section><!-- End Facts Section -->
 
     
 
